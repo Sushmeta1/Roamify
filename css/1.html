@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Information Form</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #2c3e50;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .error-message {
+      display: block;
+      color: #e74c3c;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      min-height: 1.25rem;
+    }
+
+    input.error, textarea.error {
+      border-color: #e74c3c;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 1rem;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form id="customerForm" novalidate>
+      <h1>Customer Information</h1>
+
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+        <span class="error-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+        <span class="error-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" required></textarea>
+        <span class="error-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+        <span class="error-message"></span>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('customerForm');
+      const inputs = form.querySelectorAll('input, textarea');
+
+      const patterns = {
+        fullName: /^[a-zA-Z\s]{2,50}$/,
+        email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        phone: /^\+?[\d\s-]{10,}$/,
+        address: /^.{10,200}$/
+      };
+
+      const errorMessages = {
+        fullName: 'Please enter a valid name (2-50 characters, letters only)',
+        email: 'Please enter a valid email address',
+        phone: 'Please enter a valid phone number (minimum 10 digits)',
+        address: 'Please enter a valid address (10-200 characters)',
+        dob: 'Please enter a valid date of birth'
+      };
+
+      const validateField = (field) => {
+        const fieldName = field.name;
+        let isValid = true;
+        let errorMessage = '';
+
+        field.classList.remove('error');
+
+        if (!field.value.trim()) {
+          isValid = false;
+          errorMessage = 'This field is required';
+        } else {
+          switch (fieldName) {
+            case 'fullName':
+            case 'email':
+            case 'phone':
+            case 'address':
+              if (!patterns[fieldName].test(field.value.trim())) {
+                isValid = false;
+                errorMessage = errorMessages[fieldName];
+              }
+              break;
+            case 'dob':
+              const date = new Date(field.value);
+              const today = new Date();
+              if (date >= today) {
+                isValid = false;
+                errorMessage = errorMessages[fieldName];
+              }
+              break;
+          }
+        }
+
+        const errorElement = field.nextElementSibling;
+        if (!isValid) {
+          field.classList.add('error');
+          errorElement.textContent = errorMessage;
+        } else {
+          errorElement.textContent = '';
+        }
+
+        return isValid;
+      };
+
+      inputs.forEach(input => {
+        input.addEventListener('blur', () => {
+          validateField(input);
+        });
+
+        input.addEventListener('input', () => {
+          input.classList.remove('error');
+          input.nextElementSibling.textContent = '';
+        });
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isFormValid = true;
+
+        inputs.forEach(input => {
+          if (!validateField(input)) {
+            isFormValid = false;
+          }
+        });
+
+        if (isFormValid) {
+          alert('Form submitted successfully!');
+          form.reset();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

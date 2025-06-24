@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guide - Roamify</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .guide-section {
+            margin: 4rem 0;
+        }
+
+        .guide-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .guide-card-header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem;
+        }
+
+        .guide-card-content {
+            padding: 1.5rem;
+        }
+
+        .tip-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tip-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .tip-list li:before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .destination-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">Roamify</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="journal.html">Journal</a></li>
+                <li><a href="guide.html">Travel Guide</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Guide Header -->
+    <section class="hero" style="height: 40vh; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-4.0.3');">
+        <div class="hero-content">
+            <h1>Travel Guide</h1>
+            <p>Essential tips and recommendations for your next adventure</p>
+        </div>
+    </section>
+
+    <!-- General Travel Tips -->
+    <section class="container guide-section">
+        <div class="guide-card">
+            <div class="guide-card-header">
+                <h2>Essential Travel Tips</h2>
+            </div>
+            <div class="guide-card-content">
+                <ul class="tip-list">
+                    <li>Always keep important documents in a safe place and have digital copies</li>
+                    <li>Research local customs and etiquette before your trip</li>
+                    <li>Get travel insurance for peace of mind</li>
+                    <li>Learn basic phrases in the local language</li>
+                    <li>Keep emergency contacts easily accessible</li>
+                    <li>Pack light and smart - less is more</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destination Specific Tips -->
+    <section class="container guide-section">
+        <h2>Destination Guides</h2>
+        <div class="destination-tips">
+            <!-- Europe -->
+            <div class="guide-card">
+                <div class="guide-card-header">
+                    <h3>European Adventures</h3>
+                </div>
+                <div class="guide-card-content">
+                    <ul class="tip-list">
+                        <li>Get a Eurail Pass for train travel</li>
+                        <li>Book museums in advance</li>
+                        <li>Carry cash and cards</li>
+                        <li>Learn about local transportation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Asia -->
+            <div class="guide-card">
+                <div class="guide-card-header">
+                    <h3>Asian Exploration</h3>
+                </div>
+                <div class="guide-card-content">
+                    <ul class="tip-list">
+                        <li>Respect local temples and customs</li>
+                        <li>Try street food safely</li>
+                        <li>Use public transportation apps</li>
+                        <li>Carry cash in local currency</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Americas -->
+            <div class="guide-card">
+                <div class="guide-card-header">
+                    <h3>American Adventures</h3>
+                </div>
+                <div class="guide-card-content">
+                    <ul class="tip-list">
+                        <li>Rent a car for flexibility</li>
+                        <li>Check national park passes</li>
+                        <li>Understand tipping culture</li>
+                        <li>Book accommodations early</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Travel Tips -->
+    <section class="container guide-section">
+        <h2>Seasonal Travel Tips</h2>
+        <div class="grid">
+            <div class="guide-card">
+                <div class="guide-card-header">
+                    <h3>Summer Travel</h3>
+                </div>
+                <div class="guide-card-content">
+                    <ul class="tip-list">
+                        <li>Book accommodations well in advance</li>
+                        <li>Pack light, breathable clothing</li>
+                        <li>Stay hydrated and use sun protection</li>
+                        <li>Plan indoor activities during peak heat</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-card-header">
+                    <h3>Winter Travel</h3>
+                </div>
+                <div class="guide-card-content">
+                    <ul class="tip-list">
+                        <li>Pack warm, layered clothing</li>
+                        <li>Check weather conditions regularly</li>
+                        <li>Book flexible tickets</li>
+                        <li>Consider travel insurance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- State-wise Travel Guides -->
+    <section class="container guide-section">
+        <h2>State-wise Travel Guides</h2>
+        
+        <!-- North India -->
+        <div class="region-section">
+            <h3 class="region-title">North India</h3>
+            <div class="grid">
+                <div class="guide-card">
+                    <div class="guide-card-header">
+                        <h3>Rajasthan</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul class="tip-list">
+                            <li>Best time to visit: October to March</li>
+                            <li>Famous for: Palaces, Forts, Desert Safari</li>
+                            <li>Must visit: Jaipur, Udaipur, Jaisalmer</li>
+                            <li>Local cuisine: Dal Baati Churma, Laal Maas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-card-header">
+                        <h3>Uttar Pradesh</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul class="tip-list">
+                            <li>Best time to visit: October to March</li>
+                            <li>Famous for: Taj Mahal, Spiritual Sites</li>
+                            <li>Must visit: Agra, Varanasi, Lucknow</li>
+                            <li>Local cuisine: Kebabs, Chaat, Biryani</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- South India -->
+        <div class="region-section">
+            <h3 class="region-title">South India</h3>
+            <div class="grid">
+                <div class="guide-card">
+                    <div class="guide-card-header">
+                        <h3>Kerala</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul class="tip-list">
+                            <li>Best time to visit: September to March</li>
+                            <li>Famous for: Backwaters, Ayurveda</li>
+                            <li>Must visit: Alleppey, Munnar, Kochi</li>
+                            <li>Local cuisine: Appam, Kerala Fish Curry</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-card-header">
+                        <h3>Tamil Nadu</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul class="tip-list">
+                            <li>Best time to visit: October to March</li>
+                            <li>Famous for: Temples, Classical Dance</li>
+                            <li>Must visit: Chennai, Madurai, Ooty</li>
+                            <li>Local cuisine: Dosa, Idli, Chettinad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- East India -->
+        <div class="region-section">
+            <h3 class="region-title">East India</h3>
+            <div class="grid">
+                <div class="guide-card">
+                    <div class="guide-card-header">
+                        <h3>West Bengal</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul class="tip-list">
+                            <li>Best time to visit: October to March</li>
+                            <li>Famous for: Culture, Durga Puja</li>
+                            <li>Must visit: Kolkata, Darjeeling, Sundarbans</li>
+                            <li>Local cuisine: Fish Curry, Mishti Doi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-card-header">
+                        <h3>Assam</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul class="tip-list">
+                            <li>Best time to visit: November to March</li>
+                            <li>Famous for: Tea Gardens, Wildlife</li>
+                            <li>Must visit: Kaziranga, Majuli, Guwahati</li>
+                            <li>Local cuisine: Assam Tea, Masor Tenga</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <h3>Roamify</h3>
+                <p>Your personal travel companion</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul style="list-style: none;">
+                    <li><a href="destinations.html" style="color: white; text-decoration: none;">Destinations</a></li>
+                    <li><a href="journal.html" style="color: white; text-decoration: none;">Journal</a></li>
+                    <li><a href="guide.html" style="color: white; text-decoration: none;">Travel Guide</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>Email: info@roamify.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
